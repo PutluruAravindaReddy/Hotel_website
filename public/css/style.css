@@ -1,6 +1,6 @@
 body{
   font-family: "Plus Jakarta Sans", sans-serif !important;
-    background-color:aliceblue;
+    /* background-color:aliceblue; */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -64,15 +64,9 @@ body{
 
 /* { Cards } */
 
-.card{
+.listing-card{
     border: none !important;
-    margin: 1rem !important;
-    padding: 10px !important;
-    border-radius:1rem !important;
-}
-
-.card-body *{
-    padding: 5px 0 !important;
+    margin-bottom: 2rem !important;
 }
 
 .card-img-top{
@@ -81,6 +75,11 @@ body{
     object-fit: cover !important;
 }
 
+/* .card-body *{
+    padding: 5px 0 !important;
+} */
+
+
 .card-body{
     padding: 0 !important;
 }
@@ -88,6 +87,7 @@ body{
 .card-text p{
     font-weight: 400 !important;
 }
+
 
 .listing-link{
     text-decoration: none !important;
@@ -120,14 +120,18 @@ body{
 
 /* { Show Page } */
 
+.show-img{
+    height:30vh;
+}
+
 .show-head {
     margin-left: 15px !important;
 }
 
 .btns {
     display: flex;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    /* margin-right: 10px;
+    margin-bottom: 10px; */
 }
 
 .card-title,
@@ -144,8 +148,10 @@ body{
 }
 
 .show-card {
-    background-color: white;
+    /* background-color: white; */
     border: none !important;
-    padding: 10px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin-bottom: 0 !important;
     border-radius: 1rem !important;
 }
