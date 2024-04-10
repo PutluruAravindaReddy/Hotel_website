@@ -10,9 +10,8 @@ const listingSchema = new mongoose.Schema({
         type: String,
     },
     image: {
-        type: String,
-        set: (v) => (v === "") ? "https://www.enwallpaper.com/wp-content/uploads/photo-1570712699560-90346772c774-scaled.jpg" : v,
-        default: 'https://www.enwallpaper.com/wp-content/uploads/photo-1570712699560-90346772c774-scaled.jpg',
+        url:String,
+      filename:String
     },
     price: {
         type: Number,
@@ -28,7 +27,16 @@ const listingSchema = new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:"Review"
         },
-    ]
+    ],
+    owner:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    },
+    // category:{
+    //     type:String,
+    //     enum:{
+    //         []
+    // }
 });
 
 listingSchema.post("findOneAndDelete",async(listing)=>{
