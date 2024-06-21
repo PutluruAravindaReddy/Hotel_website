@@ -4,7 +4,7 @@ if(process.env.NODE_ENV!="production"){
 
 const express = require("express");
 const app = express();
-const port = 8080;
+// const port = 8080;
 const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
@@ -45,7 +45,7 @@ async function main() {
   await mongoose.connect(dbUrl);
 }
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server is listening on port 8080");
 });
 
