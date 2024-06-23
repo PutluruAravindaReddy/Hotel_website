@@ -1,25 +1,95 @@
-<% layout("/layouts/boilerplate")%>
+<% layout("/layouts/boilerplate") %>
+<style>
+  body {
+    background-color: #f8f9fa;
+  }
+  .register-ar-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  .register-ar-form h2 {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .form-ar-control {
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0 10px 0;
+    margin-bottom: 20px;
+    box-shadow: none;
+  }
+  .btn-ar-register {
+    border-radius: 12px;
+    padding: 8px 20px;
+    margin: 10px 0 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #5cb85c; /* Green color */
+    border: none;
+    color: #fff;
+  }
+  .btn-ar-register:hover {
+    background-color: #4cae4c; /* Darker green color on hover */
+  }
+  .form-ar-check-label {
+    font-weight: normal;
+  }
+  .border-r {
+    border-radius: 20px;
+  }
+  .invalid-feedback {
+    display: none;
+    color: #dc3545; /* Red color for error message */
+  }
+</style>
 
-    <div class="row">
-        <h1 class="col-6 offset-3">SignUp on Wanderlust</h1>
-        <div class="col-6 offset-3">
-            <form action="/signup" method="post" class="needs-validation" novalidate>
-                <div>
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" placeholder="Username" required class="form-control">
-                    <div class="valid-feedback">Looks good!</div>
-                </div>
-                <div>
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" placeholder="Email" required class="form-control">
-                    <div class="valid-feedback">Enter valid email</div>
-                </div>
-                <div>
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" placeholder="Password" required class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">SignUp</button>
-            </form>
+<div class="container my-5">
+  <div class="register-ar-form border-r">
+    <h2>Register</h2>
+    <form action="/signup" method="post" id="registerForm" class="needs-validation" novalidate>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control form-ar-control" name="username" id="username" placeholder="Enter your username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control form-ar-control" name="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control form-ar-control" name="password" id="password" placeholder="Enter your password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" class="form-control form-ar-control" name="confirm-password" id="confirm-password" placeholder="Confirm your password" required>
+        <div class="invalid-feedback" id="passwordError">
+          Passwords do not match.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success btn-ar-register btn-block">Register</button>
+    </form>
+    <hr>
+    <p class="text-center">Already have an account? <a href="/login">Login here</a></p>
+  </div>
+</div>
 
-            </div>
-            </div>
+<script>
+  // JavaScript for password matching validation
+  document.getElementById('registerForm').addEventListener('input', function(event) {
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirm-password').value;
+
+    if (password !== confirmPassword) {
+      document.getElementById('passwordError').style.display = 'block';
+      document.getElementById('confirm-password').setCustomValidity('Passwords do not match.');
+    } else {
+      document.getElementById('passwordError').style.display = 'none';
+      document.getElementById('confirm-password').setCustomValidity('');
+    }
+  });
+</script>
