@@ -84,7 +84,7 @@ npm install
 4.  Start the server:
 
 ```
-npm start
+node app.js
 ```
 ## Usage
 
